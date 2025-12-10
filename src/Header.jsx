@@ -11,10 +11,18 @@ const Header = () => {
     "text-gray-600 font-medium hover:text-blue-700 transition duration-300";
   const active = "text-blue-700 font-semibold";
 
+  const navItems = [
+    { to: "/", label: "Home" },
+    { to: "/courses", label: "Courses" },
+    { to: "/about", label: "About" },
+    { to: "/contact", label: "Contact" },
+    { to: "/certificate", label: "Certificate" }, // ⭐ ADDED
+  ];
+
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 shadow-sm bg-white/80 backdrop-blur-xl">
       <div className="flex items-center justify-between h-20 px-6 mx-auto max-w-7xl">
-        {/* LOGO SECTION */}
+        {/* LOGO */}
         <NavLink to="/" className="flex items-center gap-3">
           <img
             src={logo}
@@ -26,14 +34,9 @@ const Header = () => {
           </span>
         </NavLink>
 
-        {/* Desktop Nav */}
+        {/* DESKTOP NAV */}
         <nav className="items-center hidden space-x-10 md:flex">
-          {[
-            { to: "/", label: "Home" },
-            { to: "/courses", label: "Courses" },
-            { to: "/about", label: "About" },
-            { to: "/contact", label: "Contact" },
-          ].map((item, index) => (
+          {navItems.map((item, index) => (
             <NavLink
               key={index}
               to={item.to}
@@ -54,7 +57,7 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Desktop CTA Button */}
+        {/* DESKTOP BUTTON */}
         <div className="hidden md:block">
           <motion.div whileHover={{ scale: 1.06 }}>
             <NavLink
@@ -66,7 +69,7 @@ const Header = () => {
           </motion.div>
         </div>
 
-        {/* Mobile Menu Icon */}
+        {/* MOBILE MENU ICON */}
         <button
           className="text-3xl text-gray-700 md:hidden"
           onClick={() => setOpen(!open)}
@@ -75,7 +78,7 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       {open && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -83,12 +86,7 @@ const Header = () => {
           className="px-6 py-6 bg-white border-t border-gray-200 shadow-md md:hidden"
         >
           <div className="flex flex-col space-y-5">
-            {[
-              { to: "/", label: "Home" },
-              { to: "/courses", label: "Courses" },
-              { to: "/about", label: "About" },
-              { to: "/contact", label: "Contact" },
-            ].map((item, index) => (
+            {navItems.map((item, index) => (
               <NavLink
                 key={index}
                 to={item.to}

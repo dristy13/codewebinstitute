@@ -7,6 +7,7 @@ import RegistrationPage from "./RegistrationPage";
 import CoursesPage from "./CoursesPage";
 import AboutPage from "./AboutPage";
 import ContactPage from "./ContactPage";
+import CertificateGenerator from "./CertificateGenerator";
 
 const App = () => {
   return (
@@ -20,6 +21,8 @@ const App = () => {
             <Route path="/register" element={<RegistrationPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
+
+            <Route path="/certificate" element={<CertificateGenerator />} />
           </Routes>
         </main>
         <Footer />
