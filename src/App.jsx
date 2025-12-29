@@ -1,34 +1,33 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
-import HomePage from "./HomePage";
-import RegistrationPage from "./RegistrationPage";
-import CoursesPage from "./CoursesPage";
-import AboutPage from "./AboutPage";
-import ContactPage from "./ContactPage";
-import CertificateGenerator from "./CertificateGenerator";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Services from "./pages/Services";
+import Portfolio from "./pages/Portfolio";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 
-const App = () => {
+export default function App() {
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen antialiased text-secondary bg-background">
-        <Header />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/courses" element={<CoursesPage />} />
-            <Route path="/register" element={<RegistrationPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+    <div className="text-white bg-black">
+      <Navbar />
 
-            <Route path="/certificate" element={<CertificateGenerator />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+      <section id="home">
+        <Home />
+      </section>
+      <section id="services">
+        <Services />
+      </section>
+      <section id="portfolio">
+        <Portfolio />
+      </section>
+      <section id="about">
+        <About />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
+
+      <Footer />
+    </div>
   );
-};
-
-export default App;
+}
