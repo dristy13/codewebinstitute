@@ -1,58 +1,138 @@
+import { motion } from "framer-motion";
+import { CheckCircle } from "lucide-react";
+
 export default function About() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
     <section className="max-w-6xl px-6 py-32 mx-auto">
       {/* Heading */}
-      <div className="mb-20 text-center">
-        <h1 className="mb-4 text-4xl font-bold md:text-5xl">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+        className="mb-20 text-center"
+      >
+        <motion.h1
+          variants={itemVariants}
+          className="mb-4 text-4xl font-bold text-white md:text-5xl"
+        >
           About Code Web Solutions
-        </h1>
-        <p className="max-w-3xl mx-auto text-lg text-gray-400">
-          We are a modern digital agency focused on building reliable, scalable
-          and high-quality web solutions for real businesses.
-        </p>
-      </div>
+        </motion.h1>
+        <motion.p
+          variants={itemVariants}
+          className="max-w-3xl mx-auto text-lg text-gray-400"
+        >
+          A premium digital agency dedicated to transforming ambitious visions
+          into exceptional digital experiences through innovative technology and
+          strategic design.
+        </motion.p>
+      </motion.div>
 
       {/* Content Grid */}
-      <div className="grid items-center gap-16 md:grid-cols-2">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+        className="grid items-center gap-16 md:grid-cols-2"
+      >
         {/* Left Content */}
-        <div>
-          <h2 className="mb-4 text-2xl font-semibold">Who We Are</h2>
-          <p className="mb-6 leading-relaxed text-gray-300">
-            Code Web Solutions is a technology-driven agency that helps
-            businesses establish a strong digital presence. We specialize in
-            building modern websites, web applications and digital platforms
-            that are fast, secure and user-friendly.
+        <motion.div variants={itemVariants}>
+          <h2 className="mb-6 text-3xl font-semibold text-white">Who We Are</h2>
+          <p className="mb-6 leading-relaxed text-gray-400">
+            Code Web Solutions is a forward-thinking digital agency that
+            empowers businesses to establish commanding digital presence. We
+            specialize in architecting modern websites, sophisticated web
+            applications, and scalable digital platforms that combine stunning
+            design with robust functionality.
           </p>
 
-          <p className="leading-relaxed text-gray-300">
-            Our focus is not just on design, but on delivering solutions that
-            actually solve business problems and help companies grow.
+          <p className="leading-relaxed text-gray-400">
+            Our philosophy extends beyond aesthetics. We engineer solutions that
+            address real business challenges, drive meaningful engagement, and
+            accelerate sustainable growth for forward-thinking organizations.
           </p>
-        </div>
+        </motion.div>
 
         {/* Right Content */}
-        <div className="p-8 border shadow-xl bg-white/5 backdrop-blur-xl border-white/10 rounded-2xl">
-          <h3 className="mb-4 text-xl font-semibold">Why Choose Us</h3>
+        <motion.div
+          variants={itemVariants}
+          className="p-8 transition-colors border border-gray-800 rounded-xl bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-xl hover:border-gray-700"
+        >
+          <h3 className="mb-6 text-xl font-semibold text-white">
+            Why Choose Us
+          </h3>
 
-          <ul className="space-y-3 text-gray-300">
-            <li>• Clean & modern UI/UX design</li>
-            <li>• Scalable and performance-focused code</li>
-            <li>• Real-world project experience</li>
-            <li>• Transparent communication</li>
-            <li>• Long-term technical support</li>
+          <ul className="space-y-4 text-gray-300">
+            <li className="flex items-start gap-3">
+              <CheckCircle className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+              <span>Refined & modern UI/UX design excellence</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <CheckCircle className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+              <span>Scalable, performance-optimized architecture</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <CheckCircle className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+              <span>Proven track record across industries</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <CheckCircle className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+              <span>Transparent, collaborative partnerships</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <CheckCircle className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+              <span>Dedicated long-term technical support</span>
+            </li>
           </ul>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Mission Section */}
-      <div className="mt-24 text-center">
-        <h2 className="mb-4 text-2xl font-semibold">Our Mission</h2>
-        <p className="max-w-3xl mx-auto leading-relaxed text-gray-400">
-          Our mission is to empower businesses with technology by delivering
-          digital products that are efficient, reliable and future-ready. We
-          believe in building long-term partnerships, not just websites.
-        </p>
-      </div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+        className="mt-24 text-center"
+      >
+        <motion.h2
+          variants={itemVariants}
+          className="mb-6 text-3xl font-semibold text-white"
+        >
+          Our Mission
+        </motion.h2>
+        <motion.p
+          variants={itemVariants}
+          className="max-w-3xl mx-auto leading-relaxed text-gray-400"
+        >
+          We empower visionary businesses with cutting-edge technology and
+          strategic digital solutions. Our commitment is to deliver
+          sophisticated products that are efficient, reliable, and future-proof.
+          We build enduring partnerships rooted in trust, transparency, and
+          shared success.
+        </motion.p>
+      </motion.div>
     </section>
   );
 }
